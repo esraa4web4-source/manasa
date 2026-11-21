@@ -1,4 +1,4 @@
-# Manara Labs — landing page
+# Manasa Labs — landing page
 
 Next.js (App Router) + TypeScript build of the **LandingDesktop / LandingMobile** reference composition from the Manara Labs design system (`../Manara Labs`), in English and Arabic.
 
@@ -13,7 +13,7 @@ npm run dev     # http://localhost:3000 and http://localhost:3000/ar
 npm run build
 ```
 
-Set `NEXT_PUBLIC_SITE_URL` (for example `https://manaralabs.com`) in production so canonical and `hreflang` URLs are absolute.
+Set `NEXT_PUBLIC_SITE_URL` (for example `https://manasa.vercel.app`) in production so canonical and `hreflang` URLs are absolute.
 
 ## Structure
 
@@ -43,7 +43,7 @@ If the design system changes, re-copy `tokens.css` and `bundle.css` (dropping th
 - Headings use Alexandria (`t-ar-*` scale) and UI/body text uses IBM Plex Sans Arabic. Arabic is set one size larger than English with about 1.6–1.75× leading, and is never letter-spaced.
 - The hero and CTA accent is the key phrase in beacon, not Instrument Serif italic, because the serif has no Arabic glyphs.
 - Copy uses Arabic-Indic numerals (٠١, ٤–٦ أسابيع).
-- The Arabic logo lockup is «منارة» in Alexandria 600.
+- The Arabic logo lockup is «منصة» in Alexandria 600.
 - Arrows are mirrored with `<Icon flip />`.
 - Product mockups stay in English and LTR (`dir="ltr" lang="en"`), following the rule that mockups keep the language of the client they depict.
 - Email inputs and phone numbers are isolated as LTR inside the Arabic text.

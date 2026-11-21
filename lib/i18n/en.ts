@@ -10,12 +10,12 @@ export const en: Dict = {
   locale: "en",
   dir: "ltr",
   meta: {
-    title: "Manara Labs — Educational Platforms, LMS & Mobile Apps",
+    title: "Manasa Labs — Educational Platforms, LMS & Mobile Apps",
     description:
       "We turn your educational vision into a professional digital platform. Custom LMS, course platforms, instructor websites and learning apps in Arabic and English.",
   },
   skip: "Skip to content",
-  brand: { homeLabel: "Manara Labs home" },
+  brand: { homeLabel: "Manasa Labs home" },
   nav: {
     label: "Main",
     links: [
@@ -60,7 +60,7 @@ export const en: Dict = {
     ],
   },
   value: {
-    eyebrow: "Why Manara Labs",
+    eyebrow: "Why Manasa Labs",
     title: "A technology partner that understands education.",
     intro: "Most agencies build websites. We build the tools teachers use every day — so we start with your students, not with code.",
     link: "See how we work",
@@ -227,7 +227,7 @@ export const en: Dict = {
       loadValue: "< 2 s",
       chatName: "Dr. Layla",
       chatQ: "The quiz timer looks wrong on iPad.",
-      chatTyping: "Manara is typing…",
+      chatTyping: "Manasa is typing…",
       chatA: "Fixed and deployed — thanks for flagging it.",
       chatTime: "Today",
     },
@@ -292,7 +292,7 @@ export const en: Dict = {
       { href: "#faq", label: "FAQ" },
     ],
     otherLanguage: { href: "/ar", label: "العربية", lang: "ar" },
-    rights: "© 2026 Manara Labs. All rights reserved.",
+    rights: "© 2026 Manasa Labs. All rights reserved.",
     privacy: "Privacy",
     terms: "Terms",
   },

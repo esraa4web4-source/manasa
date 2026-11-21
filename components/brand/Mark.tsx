@@ -3,7 +3,7 @@ import type { CSSProperties } from "react";
 export type MarkVariant = "default" | "reversed" | "mono" | "mono-light" | "tile" | "tile-beacon";
 
 /**
- * The Manara mark: a lowercase "m" drawn as two arches with the beacon lantern above the centre stem.
+ * The Manasa mark: a lowercase "m" drawn as two arches with the beacon lantern above the centre stem.
  * Use `reversed` on night, `default` on paper.
  */
 export function Mark({ variant = "default", style }: { variant?: MarkVariant; style?: CSSProperties }) {
@@ -36,7 +36,7 @@ export function Mark({ variant = "default", style }: { variant?: MarkVariant; st
   );
 }
 
-/** EN lockup: "manara labs" in Instrument Sans. AR lockup: "منارة" in Alexandria 600. */
+/** EN lockup: "manasa labs" in Instrument Sans. AR lockup: "منصة" in Alexandria 600. */
 export function Logo({
   variant = "reversed",
   href = "#top",
@@ -52,10 +52,10 @@ export function Logo({
     <a className="mn-logo" href={href} aria-label={label}>
       <Mark variant={variant} />
       {arabic ? (
-        <span className="mn-wordmark-ar">منارة</span>
+        <span className="mn-wordmark-ar">منصة</span>
       ) : (
         <span className="mn-wordmark">
-          manara<span>labs</span>
+          manasa<span>labs</span>
         </span>
       )}
     </a>
