@@ -1,0 +1,300 @@
+/* Manara Labs — generated from tokens.json */
+:root, [data-theme="light"] {
+  --paper: #f6f4ef; /* Page background — warm paper in light, deep night in dark. Default ground for ink and ink-muted. */
+  --surface: #ffffff; /* Cards, inputs, menus, mockup panels — raised one step above paper. */
+  --surface-sunken: #eeebe4; /* Wells, table headers, hover fills on ghost/secondary buttons, image placeholders. */
+  --line: #e2ded5; /* Hairlines: card borders, dividers, table rules. Decorative only — never the sole boundary of a control. */
+  --line-strong: #858b90; /* Control borders (inputs, secondary buttons, outline badges). ≥3:1 on paper and surface in both themes. */
+  --ink: #0b1620; /* Primary text and headings on paper, surface and surface-sunken (≥14:1 light, ≥13:1 dark). */
+  --ink-muted: #5a6570; /* Secondary text, metadata, placeholders, on paper/surface/surface-sunken (≥5:1 both themes). */
+  --tide: #0e5a66; /* Brand colour (deep petrol teal). Primary buttons, links, active states, data highlights; as text on paper, surface or tide-soft (≥6.5:1). */
+  --tide-strong: #0a4650; /* Hover/pressed state of tide fills. */
+  --tide-soft: #ddedec; /* Tinted wells behind tide text: icon tiles, info badges, selected rows, chart tracks. */
+  --on-tide: #ffffff; /* Text and icons on a tide fill (primary button label). Never use literal white. */
+  --beacon: #f2a93b; /* Signature accent (lantern amber) — the light in the logo. Fills only on light grounds: the dot, eyebrow squares, highlight marks, the hero CTA on night. Never body text on paper. */
+  --beacon-ink: #9a5b00; /* Amber as TEXT: on paper, surface or beacon-soft (≥4.7:1 light). */
+  --beacon-soft: #fcefd6; /* Tinted wells behind beacon-ink: 'New', 'Concept', 'Highlight' badges. */
+  --on-beacon: #0b1620; /* Text on a beacon fill (≥9:1). Amber buttons always carry ink, never white. */
+  --night: #0b1620; /* Signature dark ground used in BOTH themes: hero, featured cards, LMS sidebars, social post backgrounds. */
+  --night-raised: #13232f; /* Panels and active nav items sitting on night. */
+  --night-line: #22384a; /* Decorative hairlines and dividers on night. */
+  --night-line-strong: #5e7385; /* Outline-button and input borders on night (≥3.7:1). */
+  --on-night: #eef1ef; /* Primary text on night and night-raised (≥14:1). */
+  --on-night-muted: #a9b6bf; /* Secondary text on night and night-raised (≥8:1). */
+  --success: #186b4a; /* Completed, passed, published. Always paired with a word or check icon; as text on paper, surface or success-soft. */
+  --success-soft: #ddf1e7; /* Wells behind success text. */
+  --danger: #b4441c; /* Errors, failed, overdue — an orange-red, always with a word or icon; as text on paper, surface or danger-soft. */
+  --danger-soft: #fbe6dc; /* Wells behind danger text; invalid input halo. */
+  --focus: #0e5a66; /* Keyboard focus ring: 2px solid, 2px offset. Tide in light, beacon in dark — ≥3:1 on every surface it lands on. Inside night sections the ring switches to beacon (bundle.css handles it). */
+  --link: var(--tide); /* Inline links — an alias of tide, so a theme that moves tide moves links. */
+  --abyss: #04090d; /* Immersive (Lantern Glass) page ground — deeper than night. Text on it: on-night (16:1) or on-night-muted (≥8:1). */
+  --glass-fill: rgba(170,215,215,0.07); /* Frosted glass panel fill over abyss/night. Always pair with a 16–20px backdrop blur and glass-edge. */
+  --glass-edge: rgba(255,255,255,0.14); /* 1px border on glass panels; the top inner highlight uses glass-highlight. */
+  --glass-highlight: rgba(255,255,255,0.22); /* Inset top-edge light on glass (inset 0 1px 0) and the pointer-follow specular spot. */
+  --glass-solid: rgba(18,34,44,0.88); /* Fallback glass for elements inside 3D transforms, where backdrop blur is unreliable. */
+  --beacon-hot: #ffc977; /* Hover state of the lantern CTA and the brightest point of the lantern glow. Fill only, ink text. */
+  --sea-glass: #9fd8d3; /* Third light colour of the showroom (academic / professor products). Text on abyss ≥12:1; fills behind ink only. */
+  --shadow-xs: 0 1px 2px rgba(11,22,32,0.06); /* Resting cards and inputs. */
+  --shadow-sm: 0 1px 2px rgba(11,22,32,0.05), 0 4px 12px rgba(11,22,32,0.06); /* Menus, popovers, sticky nav after scroll. */
+  --shadow-md: 0 2px 4px rgba(11,22,32,0.04), 0 16px 32px -8px rgba(11,22,32,0.14); /* Hovered cards, floating UI fragments in marketing visuals. */
+  --shadow-lg: 0 4px 8px rgba(11,22,32,0.04), 0 40px 80px -24px rgba(11,22,32,0.28); /* Browser and device frames in hero and portfolio mockups. */
+  --shadow-glass: inset 0 1px 0 rgba(255,255,255,0.22), 0 30px 60px -24px rgba(0,0,0,0.70); /* Glass panels and floating UI satellites in the immersive direction. */
+  --shadow-device-deep: 0 50px 100px -30px rgba(0,0,0,0.85), 0 0 0 1px rgba(255,255,255,0.08); /* Browser and phone mockups floating in 3D on abyss. */
+}
+[data-theme="dark"] {
+  --paper: #0b1620;
+  --surface: #122230;
+  --surface-sunken: #08111a;
+  --line: #1f3344;
+  --line-strong: #5e7385;
+  --ink: #eef1ef;
+  --ink-muted: #9daab4;
+  --tide: #5cc6cc;
+  --tide-strong: #86d8db;
+  --tide-soft: #0f3038;
+  --on-tide: #0b1620;
+  --beacon: #f5b651;
+  --beacon-ink: #f5b651;
+  --beacon-soft: #3a2a10;
+  --on-beacon: #0b1620;
+  --night: #060e15;
+  --night-raised: #0f1c27;
+  --night-line: #22384a;
+  --night-line-strong: #5e7385;
+  --on-night: #eef1ef;
+  --on-night-muted: #a9b6bf;
+  --success: #5ccb98;
+  --success-soft: #0e2d21;
+  --danger: #f08a5d;
+  --danger-soft: #3a1a0f;
+  --focus: #f5b651;
+  --link: var(--tide);
+  --shadow-xs: 0 1px 2px rgba(0,0,0,0.40);
+  --shadow-sm: 0 1px 2px rgba(0,0,0,0.40), 0 4px 12px rgba(0,0,0,0.35);
+  --shadow-md: 0 2px 4px rgba(0,0,0,0.40), 0 16px 32px -8px rgba(0,0,0,0.55);
+  --shadow-lg: 0 4px 8px rgba(0,0,0,0.40), 0 40px 80px -24px rgba(0,0,0,0.70);
+}
+:root {
+  --space-1: 4px; /* Icon-to-label gap inside badges. */
+  --space-2: 8px; /* Gap between icon and button label; tight stacks. */
+  --space-3: 12px; /* Gap between buttons; table cell padding. */
+  --space-4: 16px; /* Mobile card padding; gap in form rows. */
+  --space-5: 20px; /* Mobile page gutter. */
+  --space-6: 24px; /* Desktop card gaps; card padding on dense UI. */
+  --space-8: 32px; /* Default card padding; desktop page gutter. */
+  --space-10: 40px; /* Gap between a section heading and its content on mobile. */
+  --space-12: 48px; /* Gap between a section heading and its content on desktop. */
+  --space-16: 64px; /* Mobile section padding (top/bottom) at 72px is space-16 + space-2. */
+  --space-20: 80px; /* Space between large landing blocks inside a section. */
+  --space-24: 96px; /* Hero top padding on desktop. */
+  --space-30: 120px; /* Desktop section padding (top/bottom). */
+  --radius-xs: 4px; /* Chart bars, tiny chips, progress caps. */
+  --radius-sm: 8px; /* Small buttons, nav items inside apps, search fields in mockups. */
+  --radius-md: 12px; /* Buttons, inputs, icon tiles, app panels. */
+  --radius-lg: 20px; /* Cards, browser frames, social post inner panels. */
+  --radius-xl: 28px; /* Large feature panels, final CTA block, phone screen corners at small scale. */
+  --radius-arch: 999px; /* The ARCH: apply to the top two corners only (radius-arch radius-arch radius-lg radius-lg) for arch-framed imagery — the signature shape from the logo. */
+  --radius-pill: 999px; /* Badges, filter chips, toggles, caption pills in reels. */
+  --gradient-night: linear-gradient(180deg, #0b1620 0%, #0f2733 100%); /* Hero and final-CTA sections on night; social post night backgrounds. */
+  --gradient-beam: radial-gradient(60% 70% at 78% 0%, rgba(242,169,59,0.16) 0%, rgba(242,169,59,0) 70%); /* The lantern glow — layered over gradient-night behind the hero visual. Once per surface. */
+  --container: 1200px; /* Max content width on the landing page. */
+  --container-narrow: 760px; /* FAQ, long-form text, centered section heads. */
+  --gutter: 32px; /* Page side padding ≥1024px; 24px at 768–1023px; 20px below 768px. */
+  --nav-h: 72px; /* Top navigation height (64px below 768px). */
+  --section-y: 120px; /* Vertical section padding ≥1024px; 96px tablet; 72px mobile. */
+  --bp-sm: 640px; /* Large phones: 2-up chips, inline CTA pairs. */
+  --bp-md: 768px; /* Tablet: 2-column service grid, horizontal process. */
+  --bp-lg: 1024px; /* Desktop: 3-column grids, split hero, full nav. */
+  --bp-xl: 1280px; /* Wide: hero visual bleeds, 4-up portfolio rows. */
+  --font-display: "Instrument Sans", "Alexandria", system-ui, sans-serif;
+  --font-sans: "Instrument Sans", "IBM Plex Sans Arabic", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-serif: "Instrument Serif", Georgia, serif;
+  --font-arabic: "IBM Plex Sans Arabic", "Instrument Sans", system-ui, sans-serif;
+  --font-arabic-display: "Alexandria", "IBM Plex Sans Arabic", system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, monospace;
+  --text-t-display-hero: 600 150px/0.86 var(--font-display); /* Immersive hero only: Instrument Sans at font-stretch 76% (condensed), fluid clamp(54px, 9.4vw, 150px), lines staggered left/right across the 12-col grid. */
+  --text-t-display-xl: 600 72px/76px var(--font-display); /* Landing hero headline, desktop only (≥1024px). One per page. */
+  --text-t-display-lg: 600 56px/60px var(--font-display); /* Hero on tablet; section openers on night; reel cover titles at 1080 scale. */
+  --text-t-h1: 600 44px/50px var(--font-display); /* Page titles; mobile hero (scale down to 36px under 400px). */
+  --text-t-h2: 600 34px/40px var(--font-display); /* Section headings on the landing page and decks. */
+  --text-t-h3: 600 24px/32px var(--font-display); /* Card group titles, case-study titles, FAQ section title. */
+  --text-t-h4: 600 19px/26px var(--font-display); /* Service-card and feature titles. */
+  --text-t-accent: italic 400 1em/1 var(--font-serif); /* Inline italic emphasis for ONE word or short phrase inside a display headline (e.g. 'vision'). Inherits the headline's size. Never a full sentence, never in UI. */
+  --text-t-body-lg: 400 18px/30px var(--font-sans); /* Hero and section lead paragraphs (max 60ch). */
+  --text-t-body: 400 16px/26px var(--font-sans); /* Default body copy, FAQ answers, form copy. */
+  --text-t-body-sm: 400 14px/22px var(--font-sans); /* Card descriptions, footer links, captions under mockups. */
+  --text-t-label: 600 13px/16px var(--font-sans); /* Form labels, table emphasis, nav items in dense UI. */
+  --text-t-button: 600 15px/20px var(--font-sans); /* Button labels (14px on sm buttons). */
+  --text-t-caption: 500 12px/16px var(--font-sans); /* Metadata, timestamps, chart axes, legal lines. */
+  --text-t-overline: 500 12px/16px var(--font-mono); /* Eyebrows above headings, series tags on social posts, step numbers. Always uppercase. */
+  --text-t-data: 400 13px/20px var(--font-mono); /* Numbers in tables, scores, timers, code-ish details. */
+  --text-t-ar-display: 700 56px/80px var(--font-arabic-display); /* Arabic hero headline (Alexandria). Arabic needs ~1.4× leading — never reuse English line-heights. */
+  --text-t-ar-h1: 600 40px/60px var(--font-arabic-display); /* Arabic page titles and social post headlines (Alexandria). */
+  --text-t-ar-h2: 600 28px/44px var(--font-arabic-display); /* Arabic section headings (Alexandria). */
+  --text-t-ar-h4: 600 20px/32px var(--font-arabic); /* Arabic card titles (IBM Plex Sans Arabic). */
+  --text-t-ar-body-lg: 400 19px/34px var(--font-arabic); /* Arabic lead paragraphs. */
+  --text-t-ar-body: 400 17px/30px var(--font-arabic); /* Arabic body copy (one step larger than English for equal optical size). */
+  --text-t-ar-small: 500 14px/24px var(--font-arabic); /* Arabic captions, labels, metadata. */
+}
+.t-display-hero {
+  font-family: var(--font-display);
+  font-size: 150px;
+  line-height: 0.86;
+  font-weight: 600;
+  letter-spacing: -0.045em;
+}
+.t-display-xl {
+  font-family: var(--font-display);
+  font-size: 72px;
+  line-height: 76px;
+  font-weight: 600;
+  letter-spacing: -0.035em;
+}
+.t-display-lg {
+  font-family: var(--font-display);
+  font-size: 56px;
+  line-height: 60px;
+  font-weight: 600;
+  letter-spacing: -0.03em;
+}
+.t-h1 {
+  font-family: var(--font-display);
+  font-size: 44px;
+  line-height: 50px;
+  font-weight: 600;
+  letter-spacing: -0.025em;
+}
+.t-h2 {
+  font-family: var(--font-display);
+  font-size: 34px;
+  line-height: 40px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+.t-h3 {
+  font-family: var(--font-display);
+  font-size: 24px;
+  line-height: 32px;
+  font-weight: 600;
+  letter-spacing: -0.015em;
+}
+.t-h4 {
+  font-family: var(--font-display);
+  font-size: 19px;
+  line-height: 26px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+.t-accent {
+  font-family: var(--font-serif);
+  font-size: 1em;
+  line-height: 1;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  font-style: italic;
+}
+.t-body-lg {
+  font-family: var(--font-sans);
+  font-size: 18px;
+  line-height: 30px;
+  font-weight: 400;
+  letter-spacing: 0;
+}
+.t-body {
+  font-family: var(--font-sans);
+  font-size: 16px;
+  line-height: 26px;
+  font-weight: 400;
+  letter-spacing: 0;
+}
+.t-body-sm {
+  font-family: var(--font-sans);
+  font-size: 14px;
+  line-height: 22px;
+  font-weight: 400;
+  letter-spacing: 0;
+}
+.t-label {
+  font-family: var(--font-sans);
+  font-size: 13px;
+  line-height: 16px;
+  font-weight: 600;
+  letter-spacing: 0;
+}
+.t-button {
+  font-family: var(--font-sans);
+  font-size: 15px;
+  line-height: 20px;
+  font-weight: 600;
+  letter-spacing: -0.005em;
+}
+.t-caption {
+  font-family: var(--font-sans);
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: 500;
+  letter-spacing: 0;
+}
+.t-overline {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+}
+.t-data {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  line-height: 20px;
+  font-weight: 400;
+  letter-spacing: 0;
+}
+.t-ar-display {
+  font-family: var(--font-arabic-display);
+  font-size: 56px;
+  line-height: 80px;
+  font-weight: 700;
+  letter-spacing: 0;
+}
+.t-ar-h1 {
+  font-family: var(--font-arabic-display);
+  font-size: 40px;
+  line-height: 60px;
+  font-weight: 600;
+  letter-spacing: 0;
+}
+.t-ar-h2 {
+  font-family: var(--font-arabic-display);
+  font-size: 28px;
+  line-height: 44px;
+  font-weight: 600;
+  letter-spacing: 0;
+}
+.t-ar-h4 {
+  font-family: var(--font-arabic);
+  font-size: 20px;
+  line-height: 32px;
+  font-weight: 600;
+  letter-spacing: 0;
+}
+.t-ar-body-lg {
+  font-family: var(--font-arabic);
+  font-size: 19px;
+  line-height: 34px;
+  font-weight: 400;
+  letter-spacing: 0;
+}
+.t-ar-body {
+  font-family: var(--font-arabic);
+  font-size: 17px;
+  line-height: 30px;
+  font-weight: 400;
+  letter-spacing: 0;
+}
+.t-ar-small {
+  font-family: var(--font-arabic);
+  font-size: 14px;
+  line-height: 24px;
+  font-weight: 500;
+  letter-spacing: 0;
+}

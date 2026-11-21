@@ -1,0 +1,167 @@
+/* ==========================================================================
+   Lantern Glass surfaces for the Packages and Contact sections.
+   Tokens: glass-fill, glass-edge, glass-highlight, glass-solid, shadow-glass,
+   abyss, sea-glass, beacon-hot (see 06-lantern-glass.md in the design system).
+   ========================================================================== */
+
+/* ---------- Frosted panel ---------- */
+.glass {
+  position: relative;
+  background: linear-gradient(180deg, rgba(255,255,255,.10) 0%, rgba(255,255,255,.02) 100%), var(--glass-fill), rgba(4,9,13,.52);
+  -webkit-backdrop-filter: blur(18px) saturate(150%);
+  backdrop-filter: blur(18px) saturate(150%);
+  border: 1px solid var(--glass-edge);
+  box-shadow: var(--shadow-glass);
+  color: var(--on-night);
+}
+/* Pointer-following specular spot (positions set by trackGlassLight). */
+.glass::after {
+  content: ""; position: absolute; inset: 0; border-radius: inherit; pointer-events: none;
+  background: radial-gradient(260px circle at var(--mx, 50%) var(--my, 0%), var(--glass-highlight), transparent 65%);
+  mix-blend-mode: soft-light; opacity: .55; transition: opacity .2s ease;
+}
+.glass:hover::after { opacity: 1; }
+.glass > :not(.pkg-lantern) { position: relative; z-index: 1; }
+.glass--warm {
+  background: linear-gradient(180deg, rgba(242,169,59,.16) 0%, rgba(242,169,59,.03) 100%), var(--glass-fill), rgba(4,9,13,.52);
+  border-color: rgba(242,169,59,.38);
+}
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  .glass, .glass--warm { background: var(--glass-solid); }
+}
+
+/* ---------- Backdrop: brand shapes for the glass to blur ---------- */
+.glass-backdrop { position: absolute; inset: 0; overflow: hidden; pointer-events: none; z-index: 0; border-radius: inherit; }
+/* Calm, static colour: soft teal pools and a faint lantern warmth. No movement. */
+.gb { position: absolute; display: block; border-radius: 50%; }
+.gb--lantern { width: 560px; height: 560px; background: radial-gradient(circle, rgba(242,169,59,.16) 0%, rgba(242,169,59,0) 65%); }
+.gb--arch { width: 720px; height: 720px; background: radial-gradient(circle, rgba(14,90,102,.55) 0%, rgba(14,90,102,0) 65%); }
+.gb--sea { width: 520px; height: 520px; background: radial-gradient(circle, rgba(159,216,211,.10) 0%, rgba(159,216,211,0) 65%); }
+.gb--dots { inset: 0; border-radius: 0;
+  background-image: radial-gradient(var(--night-line) 1px, transparent 1.2px); background-size: 22px 22px;
+  -webkit-mask-image: radial-gradient(70% 70% at 50% 50%, #000, transparent); mask-image: radial-gradient(70% 70% at 50% 50%, #000, transparent); opacity: .6; }
+
+/* ---------- Entrance animation: rise + come into focus ---------- */
+@keyframes glass-in {
+  from { opacity: 0; translate: 0 44px; scale: .96; filter: blur(12px); }
+  to { opacity: 1; translate: 0 0; scale: 1; filter: none; }
+}
+@keyframes fade-up {
+  from { opacity: 0; translate: 0 18px; }
+  to { opacity: 1; translate: 0 0; }
+}
+
+/* ==========================================================================
+   Packages on abyss
+   ========================================================================== */
+.pkgs { position: relative; background: var(--abyss); border-top: 0; }
+.pkgs > .mn-container { position: relative; z-index: 1; }
+.pkgs .gb--lantern { left: -6%; top: 30%; }
+.pkgs .gb--arch { left: 30%; top: 22%; }
+.pkgs .gb--sea { right: -4%; bottom: -10%; }
+[dir="rtl"] .pkgs .gb--lantern { left: auto; right: -6%; }
+[dir="rtl"] .pkgs .gb--sea { right: auto; left: -4%; }
+
+/* Picker as glass */
+.pkgs .pkg-picker legend { color: var(--on-night-muted); }
+.pkgs .pkg-picker__track { background: var(--glass-fill); -webkit-backdrop-filter: blur(18px); backdrop-filter: blur(18px); box-shadow: inset 0 0 0 1px var(--glass-edge); }
+.pkgs .pkg-picker__thumb { background: var(--beacon); }
+.pkgs .pkg-picker label span { color: var(--on-night-muted); }
+.pkgs .pkg-picker label:hover span { color: var(--on-night); }
+.pkgs .pkg-picker input:checked + span, .pkgs .pkg-picker label:hover input:checked + span { color: var(--on-beacon); }
+
+/* Cards */
+.pkgs .pkg { border-radius: var(--radius-xl); }
+.pkgs .pkg:hover { box-shadow: var(--shadow-glass); }
+.pkgs .pkg.is-match { border-color: var(--sea-glass); box-shadow: 0 0 0 1px var(--sea-glass), var(--shadow-glass); }
+.pkgs .pkg--night.is-match { border-color: var(--beacon); box-shadow: 0 0 0 1px var(--beacon), var(--shadow-glass); }
+.pkgs .pkg-lantern { background: var(--abyss); }
+.pkgs .pkg-level { color: var(--sea-glass); }
+.pkgs .pkg--night .pkg-level { color: var(--beacon); }
+.pkgs .pkg-glyph path { stroke: var(--night-line-strong); }
+.pkgs .pkg-glyph path.is-lit { stroke: var(--beacon); }
+.pkgs .pkg-summary, .pkgs .pkg-time span { color: var(--on-night-muted); }
+.pkgs .pkg-inherits { color: var(--on-night); }
+.pkgs .pkg-time { border-color: rgba(255,255,255,.12); }
+.pkgs .pkg-time b { color: var(--on-night); }
+.pkgs .pkg--night .pkg-time b { color: var(--beacon); }
+/* Ticks: beacon check on a frosted dot (the default tide check disappears on dark glass). */
+.pkgs .mn-ticks li::before, .cta--glass .mn-ticks li::before {
+  background: rgba(255,255,255,.10) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M4.5 8.2l2.2 2.2 4.8-4.8' fill='none' stroke='%23f2a93b' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/16px no-repeat;
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,.14);
+}
+.pkgs .pkg .mn-ticks { color: var(--on-night); }
+
+/* Footer row */
+.pkgs .pkg-foot { border-top-color: rgba(255,255,255,.12); }
+.pkgs .pkg-addons .mn-chip { background: var(--glass-fill); -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px); border-color: var(--glass-edge); color: var(--on-night); }
+.pkgs .pkg-addons .mn-chip i, .pkgs .pkg-note i { color: var(--beacon); }
+
+/* Packages entrance */
+@media (prefers-reduced-motion: no-preference) {
+  .pkgs .head-row > * , .pkgs .pkg-foot { opacity: 0; }
+  .pkgs.is-in .head-row > * { animation: fade-up .6s ease-out both; }
+  .pkgs.is-in .head-row > :nth-child(2) { animation-delay: .1s; }
+  .pkgs.is-in .pkg-stage .pkg { animation: glass-in .8s cubic-bezier(.2,.7,.2,1) both; }
+  .pkgs.is-in .pkg-stage .pkg--1 { animation-delay: .25s; }
+  .pkgs.is-in .pkg-stage .pkg--2 { animation-delay: .4s; }
+  .pkgs.is-in .pkg-stage .pkg--3 { animation-delay: .55s; }
+  .pkgs.is-in .pkg-foot { animation: fade-up .6s ease-out .8s both; }
+}
+
+/* ==========================================================================
+   Contact (final CTA) with a glass form
+   ========================================================================== */
+.cta--glass {
+  /* The form now sits on dark glass, so errors use the dark-theme danger values. */
+  --danger: #f08a5d; --danger-soft: rgba(240,138,93,.16);
+  background: radial-gradient(60% 70% at 85% 10%, rgba(242,169,59,.18), transparent 70%), var(--abyss);
+  box-shadow: inset 0 0 0 1px var(--night-line);
+}
+.cta--glass > :not(.glass-backdrop) { position: relative; z-index: 1; }
+.cta--glass .gb--lantern { right: -160px; top: -240px; }
+.cta--glass .gb--arch { right: -8%; bottom: -320px; }
+.cta--glass .gb--sea { right: -40px; bottom: 10%; }
+[dir="rtl"] .cta--glass .gb--lantern { right: auto; left: -160px; }
+[dir="rtl"] .cta--glass .gb--arch { right: auto; left: -8%; }
+[dir="rtl"] .cta--glass .gb--sea { right: auto; left: -40px; }
+
+.cta--glass form.glass, .cta--glass .form-done.glass {
+  background: linear-gradient(180deg, rgba(255,255,255,.10) 0%, rgba(255,255,255,.02) 100%), var(--glass-fill), rgba(4,9,13,.52);
+  color: var(--on-night); box-shadow: var(--shadow-glass); border-radius: var(--radius-xl);
+}
+.cta--glass :focus-visible { outline-color: var(--beacon) !important; }
+.cta--glass .mn-label { color: var(--on-night); }
+.cta--glass .mn-hint, .cta--glass .mn-muted { color: var(--on-night-muted); }
+.cta--glass .mn-hint.is-error { color: var(--danger); }
+.cta--glass .mn-input { background: rgba(255,255,255,.06); border-color: rgba(255,255,255,.24); color: var(--on-night); }
+.cta--glass .mn-input::placeholder { color: var(--on-night-muted); opacity: .8; }
+.cta--glass .mn-input:hover { border-color: rgba(255,255,255,.4); }
+.cta--glass .mn-input:focus { border-color: var(--beacon); box-shadow: 0 0 0 3px rgba(242,169,59,.22); outline: none; }
+.cta--glass .mn-input.is-error { border-color: var(--danger); box-shadow: 0 0 0 3px var(--danger-soft); }
+.cta--glass .mn-chip { background: rgba(255,255,255,.06); border-color: rgba(255,255,255,.24); color: var(--on-night); }
+.cta--glass .chip-input:checked + .mn-chip { background: var(--beacon); border-color: var(--beacon); color: var(--on-beacon); }
+.cta--glass .form-done h3, .cta--glass .form-done b { color: var(--on-night) !important; }
+
+/* Contact entrance: copy slides in from the reading start, the form rises into focus. */
+@media (prefers-reduced-motion: no-preference) {
+  .cta--glass .stack-sm > *, .cta--glass > .glass { opacity: 0; }
+  .cta--glass.is-in .stack-sm > * { animation: fade-up .6s ease-out both; }
+  .cta--glass.is-in .stack-sm > :nth-child(2) { animation-delay: .08s; }
+  .cta--glass.is-in .stack-sm > :nth-child(3) { animation-delay: .16s; }
+  .cta--glass.is-in .stack-sm > :nth-child(4) { animation-delay: .24s; }
+  .cta--glass.is-in > .glass { animation: glass-in .85s cubic-bezier(.2,.7,.2,1) .2s both; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+}
+@media (max-width: 767px) {
+  .gb--lantern { width: 380px; height: 380px; }
+  .gb--arch { width: 460px; height: 460px; }
+  /* Stacked cards: spread the shapes down the section so each card has colour behind it. */
+  .pkgs .gb--lantern { left: -160px; right: auto; top: 20%; }
+  .pkgs .gb--arch { left: auto; right: -70px; top: 46%; }
+  .pkgs .gb--sea { left: -60px; bottom: auto; top: 68%; }
+  [dir="rtl"] .pkgs .gb--lantern { left: auto; right: -160px; }
+  [dir="rtl"] .pkgs .gb--arch { right: auto; left: -70px; }
+}

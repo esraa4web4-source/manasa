@@ -1,0 +1,114 @@
+/* ==========================================================================
+   Packages — three levels rising like a staircase toward the reading end.
+   ========================================================================== */
+.pkgs { background: var(--surface-sunken); border-top: 1px solid var(--line); overflow: clip; }
+.pkgs .head-row { align-items: flex-end; }
+.pkgs .mn-section-head p { max-width: 520px; }
+
+/* ---------- "Which sounds like you?" segmented picker ---------- */
+.pkg-picker { border: 0; margin: 0; padding: 0; min-width: 0; flex: 0 1 540px; }
+.pkg-picker legend { margin-bottom: 8px; padding: 0; }
+.pkg-picker__track { --i: 1; position: relative; display: grid; grid-template-columns: repeat(3, 1fr); padding: 4px; border-radius: var(--radius-md);
+  background: var(--surface); box-shadow: inset 0 0 0 1px var(--line-strong); }
+.pkg-picker__thumb { position: absolute; top: 4px; bottom: 4px; width: calc((100% - 8px) / 3); inset-inline-start: calc(4px + var(--i) * (100% - 8px) / 3);
+  border-radius: 9px; background: var(--tide); transition: inset-inline-start .2s ease, inset-block-start .2s ease; }
+.pkg-picker label { position: relative; z-index: 1; display: grid; place-items: center; min-height: 48px; padding: 6px 10px; cursor: pointer; text-align: center;
+  font: 600 13px/17px var(--font-sans); color: var(--ink-muted); transition: color .2s ease; }
+.pkg-picker input { position: absolute; opacity: 0; pointer-events: none; }
+.pkg-picker input:checked + span { color: var(--on-tide); }
+.pkg-picker label:hover span { color: var(--ink); }
+.pkg-picker label:hover input:checked + span { color: var(--on-tide); }
+.pkg-picker input:focus-visible + span { outline: 2px solid var(--focus); outline-offset: 4px; border-radius: 4px; }
+
+/* ---------- Stage: beam + staircase ---------- */
+.pkg-stage { --rise: 44px; position: relative; padding-top: 40px; }
+.pkg-beam { position: absolute; inset: 0 0 auto 0; width: 100%; height: calc(var(--rise) * 2 + 40px); overflow: visible; pointer-events: none; }
+.pkg-beam line { stroke: var(--beacon); stroke-width: 1.5; vector-effect: non-scaling-stroke; stroke-dasharray: 0.006 0.008; stroke-linecap: round; }
+[dir="rtl"] .pkg-beam { transform: scaleX(-1); }
+
+.pkg-grid { position: relative; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; align-items: start; }
+.pkg--1 { margin-top: calc(var(--rise) * 2); }
+.pkg--2 { margin-top: var(--rise); }
+
+.pkg { position: relative; display: flex; flex-direction: column; gap: 16px; padding: 28px; border-radius: var(--radius-lg);
+  background: var(--surface); border: 1px solid var(--line); box-shadow: var(--shadow-xs);
+  transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease; }
+.pkg:hover { transform: translateY(-2px); box-shadow: var(--shadow-md); }
+.pkg.is-match { border-color: var(--tide); box-shadow: 0 0 0 1px var(--tide), var(--shadow-md); }
+.pkg--night { background: var(--gradient-beam), var(--gradient-night); border-color: var(--night-line); box-shadow: none; }
+.pkg--night:hover { box-shadow: none; }
+.pkg--night.is-match { border-color: var(--beacon); box-shadow: 0 0 0 1px var(--beacon); }
+
+/* Lantern marker sitting on the beam above each card. */
+.pkg-lantern { position: absolute; top: -27px; left: 50%; width: 12px; height: 12px; margin-left: -6px; border-radius: 50%;
+  background: var(--surface-sunken); box-shadow: inset 0 0 0 2px var(--beacon); transition: background-color .2s ease, box-shadow .2s ease; }
+.pkg.is-match .pkg-lantern { background: var(--beacon); box-shadow: 0 0 0 6px rgba(242,169,59,.18), 0 0 24px 6px rgba(242,169,59,.35); }
+
+.pkg-top { display: flex; align-items: center; justify-content: space-between; gap: 8px; min-height: 26px; }
+.pkg-level { display: inline-flex; align-items: center; gap: 8px; font: 500 12px/16px var(--font-mono); letter-spacing: .08em; text-transform: uppercase; color: var(--tide); }
+.pkg--night .pkg-level { color: var(--beacon); }
+.pkg-glyph { width: 40px; height: 16px; flex: none; }
+.pkg-glyph path { fill: none; stroke: var(--line-strong); }
+.pkg-glyph path.is-lit { stroke: var(--beacon); }
+.pkg--night .pkg-glyph path { stroke: var(--night-line-strong); }
+.pkg--night .pkg-glyph path.is-lit { stroke: var(--beacon); }
+.pkg-fit { opacity: 0; transform: translateY(4px); transition: opacity .2s ease, transform .2s ease; }
+.pkg.is-match .pkg-fit { opacity: 1; transform: none; }
+
+.pkg h3 { font: 600 34px/40px var(--font-display); letter-spacing: -.025em; }
+.pkg-summary { color: var(--ink-muted); font-size: 15px; line-height: 24px; }
+.pkg--night .pkg-summary, .pkg--night .pkg-inherits { color: var(--on-night-muted); }
+
+.pkg-time { display: flex; flex-direction: column; gap: 2px; padding: 14px 0; border-block: 1px solid var(--line); }
+.pkg--night .pkg-time { border-color: var(--night-line); }
+.pkg-time span { font: 500 11px/16px var(--font-mono); letter-spacing: .08em; text-transform: uppercase; color: var(--ink-muted); }
+.pkg--night .pkg-time span { color: var(--on-night-muted); }
+.pkg-time b { font: 600 40px/44px var(--font-display); letter-spacing: -.035em; }
+.pkg--night .pkg-time b { color: var(--beacon); }
+
+.pkg-inherits { font-weight: 600; font-size: 14px; line-height: 20px; }
+.pkg .mn-ticks { flex: 1; }
+.pkg--night .mn-ticks li::before { background-color: var(--night-raised); box-shadow: inset 0 0 0 1px var(--night-line-strong); }
+.pkg-cta { margin-top: 8px; }
+
+/* ---------- Footer row: add-ons + quote note ---------- */
+.pkg-foot { display: flex; justify-content: space-between; align-items: center; gap: 24px 48px; flex-wrap: wrap; margin-top: 48px; padding-top: 28px; border-top: 1px solid var(--line); }
+.pkg-addons { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
+.pkg-addons ul { display: flex; flex-wrap: wrap; gap: 8px; margin: 0; padding: 0; list-style: none; }
+.pkg-addons .mn-chip { cursor: default; height: 36px; font-size: 13px; }
+.pkg-addons .mn-chip i { color: var(--tide); }
+.pkg-note { display: flex; gap: 8px; max-width: 460px; font-size: 14px; line-height: 22px; }
+.pkg-note i { color: var(--tide); margin-top: 3px; flex: none; }
+
+/* ---------- Reveal: the beam draws (cards rise via glass-in in glass.css) ---------- */
+@media (prefers-reduced-motion: no-preference) {
+  .pkg-stage .pkg-beam { clip-path: inset(0 100% 0 0); transition: clip-path 1.1s cubic-bezier(.2,.7,.2,1) .2s; }
+  .pkg-stage.is-in .pkg-beam { clip-path: inset(0 0 0 0); }
+}
+
+/* ---------- Arabic ---------- */
+[dir="rtl"] .pkg-lantern { left: auto; right: 50%; margin-left: 0; margin-right: -6px; }
+[dir="rtl"] .pkg-level, [dir="rtl"] .pkg-time span { font-family: var(--font-arabic); letter-spacing: 0; text-transform: none; font-size: 13px; font-weight: 600; }
+[dir="rtl"] .pkg h3 { font: 600 32px/48px var(--font-arabic-display); letter-spacing: 0; }
+[dir="rtl"] .pkg-time b { font: 700 34px/52px var(--font-arabic-display); letter-spacing: 0; }
+[dir="rtl"] .pkg-summary { font-size: 16px; line-height: 28px; }
+[dir="rtl"] .pkg-picker label { font-family: var(--font-arabic); font-size: 14px; line-height: 22px; }
+
+/* ---------- Responsive ---------- */
+@media (max-width: 1100px) {
+  .pkgs .head-row { flex-direction: column; align-items: stretch; }
+  .pkg-picker { flex-basis: auto; max-width: 560px; }
+  .pkg-stage { padding-top: 0; }
+  .pkg-beam, .pkg-lantern { display: none; }
+  .pkg-grid { grid-template-columns: 1fr; max-width: 560px; }
+  .pkg--1, .pkg--2 { margin-top: 0; }
+}
+@media (max-width: 767px) {
+  .pkg-picker__track { grid-template-columns: 1fr; }
+  .pkg-picker__thumb { width: auto; inset-inline: 4px; height: calc((100% - 8px) / 3); top: calc(4px + var(--i) * (100% - 8px) / 3); bottom: auto; transition: top .2s ease; }
+  .pkg-picker label { min-height: 44px; }
+  .pkg { padding: 24px; }
+  .pkg h3 { font-size: 30px; line-height: 36px; }
+  .pkg-time b { font-size: 34px; line-height: 40px; }
+  .pkg-foot { flex-direction: column; align-items: flex-start; }
+}
